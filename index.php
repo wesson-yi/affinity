@@ -1,31 +1,38 @@
 <?php
+
 /**
  * 这是 前端美博客制作的一款typecho博客程序 原创设计来自开源主题Affinity 地址：https://github.com/Showfom/Affinity
- * 
- * @package Typecho Replica Theme 
+ *
+ * @package Typecho Replica Theme
  * @author Typecho.ME Team
  * @version 2017.07.28
  * @link https://typecho.me/
  */
 
-if (!defined('__TYPECHO_ROOT_DIR__')) exit;
- $this->need('header.php');
- ?>
+if (!defined('__TYPECHO_ROOT_DIR__')) {
+    exit;
+}
+$this->need('header.php');
+?>
 
 <div class="content-cards">
-<?php while($this->next()): ?>
+  <?php while ($this->next()) : ?>
   <article class="content-card post">
     <div class="card">
-      <a href="<?php $this->permalink() ?>" class="card-image " style="background-image: url(<?php if (array_key_exists('img',unserialize($this->___fields()))): ?><?php $this->fields->img(); ?><?php else: ?><?php
-preg_match_all("/\<img.*?src\=(\'|\")(.*?)(\'|\")[^>]*>/i", $this->content, $matches);
-$imgCount = count($matches[0]);
-if($imgCount >= 1){
-$img = $matches[2][0];
-echo <<<Html
-{$img}
+      <a href="<?php $this->permalink() ?>" class="card-image " style="background-image: url(
+        <?php if (array_key_exists('img', unserialize($this->___fields()))) : ?>
+          <?php $this->fields->img(); ?>
+        <?php else : ?>
+        <?php
+            preg_match_all("/\<img.*?src\=(\'|\")(.*?)(\'|\")[^>]*>/i", $this->content, $matches);
+            $imgCount = count($matches[0]);
+            if ($imgCount >= 1) {
+                $img = $matches[2][0];
+                echo <<<Html
+                {$img}
 Html;
-}
-?><?php endif; ?>)">
+            }
+            ?><?php endif; ?>)">
       </a>
       <header class="card-header">
         <div class="card-title">
@@ -39,16 +46,16 @@ Html;
       </section>
       <footer class="card-footer">
         <time class="post-date" datetime="<?php $this->date('Y-m-d'); ?>"><?php $this->date(); ?></time>
-         · <?php $this->category(', '); ?>
+        · <?php $this->category(', '); ?>
       </footer>
     </div>
   </article>
-<?php endwhile; ?>
+  <?php endwhile; ?>
 </div>
 
 <nav class="pagination" role="navigation">
-<?php $this->pageLink('<x aria-label="Previous" class="btn btn-primary">上一页</x>'); ?>
-<?php $this->pageLink('<x aria-label="Next" class="btn btn-primary">下一页</x>','next'); ?>
+  <?php $this->pageLink('<x aria-label="Previous" class="btn btn-primary">上一页</x>'); ?>
+  <?php $this->pageLink('<x aria-label="Next" class="btn btn-primary">下一页</x>', 'next'); ?>
 </nav>
 
 

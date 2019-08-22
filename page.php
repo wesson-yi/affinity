@@ -1,4 +1,6 @@
-<?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
+<?php if (!defined('__TYPECHO_ROOT_DIR__')) {
+    exit;
+} ?>
 <?php $this->need('header.php'); ?>
 
 <article class="content-post content-page post page" role="main">
@@ -17,7 +19,7 @@
       </div>
       <div class="tile-content">
         <p class="tile-title"><strong>前端美</strong></p>
-            <p class="tile-subtitle">一个非盈利性博客站点，主要发布一些国内外常规的前端资讯信息，包括css3/html5等。</p>
+        <p class="tile-subtitle">一个非盈利性博客站点，主要发布一些国内外常规的前端资讯信息，包括css3/html5等。</p>
       </div>
     </div>
   </div>
@@ -26,7 +28,7 @@
   </div>
 
   <div class="doc_comments">
-  <?php $this->need('comments.php'); ?>
+    <?php $this->need('comments.php'); ?>
   </div>
 
 </article>
